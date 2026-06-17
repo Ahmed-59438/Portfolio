@@ -60,7 +60,7 @@ export default function Hero() {
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center bg-[#050505] py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
+      className="relative min-h-[90vh] md:min-h-screen w-full flex items-center justify-center bg-[#050505] pt-28 pb-20 md:py-20 px-6 md:px-12 lg:px-20 overflow-hidden"
       id="hero"
     >
       {/* 1. Background Layer (Deep Black) */}
@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="absolute top-[35%] md:top-[25%] right-[10%] md:right-[20%] z-30 w-[280px] md:w-[450px] h-[280px] md:h-[450px] bg-[#FF8A00] opacity-15 md:opacity-25 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[20%] left-[10%] z-10 w-[200px] md:w-[350px] h-[200px] md:h-[350px] bg-[#FF8A00] opacity-5 md:opacity-10 rounded-full blur-[90px] pointer-events-none mix-blend-screen" />
 
-      {/* 3. Portrait Layer (Cinematic background-integrated image) */}
+      {/* 3. Portrait Layer (Cinematic background-integrated image - Desktop only) */}
       <motion.div
         style={{
           x: isMobile ? 0 : parallaxX,
@@ -83,14 +83,14 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 1.03 }}
         animate={{ opacity: 0.95, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        className="absolute inset-0 md:inset-y-0 md:left-auto md:right-0 w-full md:w-[60%] lg:w-[50%] h-full z-20 pointer-events-none"
+        className="hidden md:block absolute inset-y-0 right-0 w-[60%] lg:w-[50%] h-full z-20 pointer-events-none"
       >
         <div className="relative w-full h-full">
           {/* Using raw <img> tag to bypass Next.js image optimization compression and achieve pixel-perfect HD quality */}
           <img
             src="/images/hero-portrait.png"
             alt="Muhammad Ahmed Portrait"
-            className="absolute inset-0 w-full h-full object-cover object-[70%_0%] md:object-right-top select-none"
+            className="absolute inset-0 w-full h-full object-cover object-right-top select-none"
             style={{
               opacity: 0.95,
               maskImage: "linear-gradient(to right, transparent 24%, black 52%)",
@@ -103,20 +103,34 @@ export default function Hero() {
           
           {/* Bottom Edge Fade */}
           <div className="absolute bottom-0 inset-x-0 h-[35%] bg-gradient-to-t from-[#050505] via-[#050505]/65 to-transparent z-30 pointer-events-none" />
-          
-          {/* No Top Edge Fade to prevent clipping hair/forehead */}
         </div>
       </motion.div>
 
       {/* 4. Text & Badges Layer (Foreground, positioned above the image) */}
-      <div className="relative w-full max-w-7xl z-40 grid grid-cols-1 md:grid-cols-12 gap-8 items-center pointer-events-none">
+      <div className="relative w-full max-w-7xl z-40 flex flex-col md:grid md:grid-cols-12 gap-8 items-center pointer-events-none">
         
+        {/* Mobile-Only Portrait (Left-aligned above the name, matching design language) */}
+        <div className="md:hidden w-full flex justify-start mb-2 pointer-events-auto">
+          <div className="relative w-36 h-36 rounded-2xl overflow-hidden border border-[#FFB347]/20 shadow-[0_0_25px_rgba(255,138,0,0.15)] bg-[#0D0D0D]">
+            <img
+              src="/images/hero-portrait.png"
+              alt="Muhammad Ahmed Portrait"
+              className="w-full h-full object-cover object-[70%_0%] scale-105 select-none"
+              style={{
+                imageRendering: "high-quality" as any,
+              }}
+            />
+            {/* Subtle bottom dark vignette overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/40 via-transparent to-transparent pointer-events-none" />
+          </div>
+        </div>
+
         {/* Left-Aligned Identity Stack */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="col-span-1 md:col-span-8 lg:col-span-7 flex flex-col items-start text-left pointer-events-auto"
+          className="w-full col-span-1 md:col-span-8 lg:col-span-7 flex flex-col items-start text-left pointer-events-auto"
         >
           {/* H1 - Name: Largest, dominant */}
           <motion.h1
