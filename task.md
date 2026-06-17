@@ -1,0 +1,32 @@
+# Task List - Cinematic AI Systems Builder Portfolio
+
+- [x] **Module 0: Project Setup**
+  - [x] Initialize Next.js project with Tailwind CSS, TypeScript, and ESLint
+  - [x] Install Framer Motion and Lucide React
+  - [x] Configure global design system tokens, fonts, and styles in Tailwind
+  - [x] Copy and organize portrait images into assets folder
+  - [x] Set up layout template and SEO metadata
+- [x] **Module 1: Hero Section (Who he is)**
+  - [x] Build interactive background-integrated portrait layer (blending, radial glow, edge blurring masks)
+  - [x] Implement text hierarchy stack (Name -> Tagline -> Monospace labels -> CTAs)
+  - [x] Code custom button components (Magnet effect, hover scales)
+  - [x] Apply mobile responsive layout rules (background overlay, dimmed glow, disable tilt)
+- [x] **Module 2: About Section (How he thinks)**
+  - [x] Design editorial dual layout (Suit portrait with amber rim lighting + content)
+  - [x] Write confident systems-centric copy
+- [x] **Module 3: Projects Section (What he builds)**
+  - [x] Build 4 system-designed project cards with responsive grid
+  - [x] Implement hover lifts, soft glow borders, and transition eases
+  - [x] Format description copy with technical problem framing/architecture focus
+- [x] **Module 4: Skills & Timeline (Supporting assets & Evolution)**
+  - [x] Group skill clusters (Core, Supporting, Tools) into minimal monospace badges
+  - [x] Design the Evolution Narrative timeline with vertical line and glowing nodes
+- [x] **Module 5: Contact Section & Navigation integration**
+  - [x] Build Contact section with glass card links
+  - [x] Code Navbar with hide-on-scroll, reappearing, active scroll spy, and backdrop blur scroll scaling
+  - [x] Hook up global smooth-scroll routing
+- [x] **Phase 6: Verification & Optimizations**
+  - [x] Verify accessibility compliance (contrast, tab-index focus, prefers-reduced-motion)
+  - [x] Audit motion easing curve consistency
+  - [x] Test layout across desktop and mobile screens
+  - [x] Run production builds and check for lint or compiler errors
