@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="absolute top-[35%] md:top-[25%] right-[10%] md:right-[20%] z-30 w-[280px] md:w-[450px] h-[280px] md:h-[450px] bg-[#FF8A00] opacity-15 md:opacity-25 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[20%] left-[10%] z-10 w-[200px] md:w-[350px] h-[200px] md:h-[350px] bg-[#FF8A00] opacity-5 md:opacity-10 rounded-full blur-[90px] pointer-events-none mix-blend-screen" />
 
-      {/* 3. Portrait Layer (Cinematic background-integrated image - Desktop only) */}
+      {/* 3. Portrait Layer (Cinematic background-integrated image) */}
       <motion.div
         style={{
           x: isMobile ? 0 : parallaxX,
@@ -83,18 +83,22 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 1.03 }}
         animate={{ opacity: 0.95, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        className="hidden md:block absolute inset-y-0 right-0 w-[60%] lg:w-[50%] h-full z-20 pointer-events-none"
+        className="absolute inset-0 md:inset-y-0 md:left-auto md:right-0 w-full md:w-[60%] lg:w-[50%] h-full z-20 pointer-events-none"
       >
         <div className="relative w-full h-full">
           {/* Using raw <img> tag to bypass Next.js image optimization compression and achieve pixel-perfect HD quality */}
           <img
             src="/images/hero-portrait.png"
             alt="Muhammad Ahmed Portrait"
-            className="absolute inset-0 w-full h-full object-cover object-right-top select-none"
+            className="absolute inset-0 w-full h-full object-cover object-[85%_0%] md:object-right-top select-none"
             style={{
               opacity: 0.95,
-              maskImage: "linear-gradient(to right, transparent 24%, black 52%)",
-              WebkitMaskImage: "linear-gradient(to right, transparent 24%, black 52%)",
+              maskImage: isMobile 
+                ? "linear-gradient(to right, transparent 10%, black 45%)" 
+                : "linear-gradient(to right, transparent 24%, black 52%)",
+              WebkitMaskImage: isMobile 
+                ? "linear-gradient(to right, transparent 10%, black 45%)" 
+                : "linear-gradient(to right, transparent 24%, black 52%)",
               imageRendering: "high-quality" as any,
             }}
           />
@@ -107,24 +111,8 @@ export default function Hero() {
       </motion.div>
 
       {/* 4. Text & Badges Layer (Foreground, positioned above the image) */}
-      <div className="relative w-full max-w-7xl z-40 flex flex-col md:grid md:grid-cols-12 gap-8 items-center pointer-events-none">
+      <div className="relative w-full max-w-7xl z-40 grid grid-cols-1 md:grid-cols-12 gap-8 items-center pointer-events-none">
         
-        {/* Mobile-Only Portrait (Left-aligned above the name, matching design language) */}
-        <div className="md:hidden w-full flex justify-start mb-2 pointer-events-auto">
-          <div className="relative w-36 h-36 rounded-2xl overflow-hidden border border-[#FFB347]/20 shadow-[0_0_25px_rgba(255,138,0,0.15)] bg-[#0D0D0D]">
-            <img
-              src="/images/hero-portrait.png"
-              alt="Muhammad Ahmed Portrait"
-              className="w-full h-full object-cover object-[70%_0%] scale-105 select-none"
-              style={{
-                imageRendering: "high-quality" as any,
-              }}
-            />
-            {/* Subtle bottom dark vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050505]/40 via-transparent to-transparent pointer-events-none" />
-          </div>
-        </div>
-
         {/* Left-Aligned Identity Stack */}
         <motion.div
           variants={containerVariants}
@@ -135,7 +123,7 @@ export default function Hero() {
           {/* H1 - Name: Largest, dominant */}
           <motion.h1
             variants={fadeInUpVariants}
-            className="text-glow-amber font-heading text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.95] mb-6 sm:mb-8"
+            className="text-glow-amber font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.95] mb-6 sm:mb-8"
           >
             Muhammad <br />
             <span className="text-[#FFB347]">Ahmed</span>
