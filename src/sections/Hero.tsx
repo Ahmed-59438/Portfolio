@@ -83,21 +83,21 @@ export default function Hero() {
         initial={{ opacity: 0, scale: 1.03 }}
         animate={{ opacity: 0.95, scale: 1 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.1 }}
-        className="absolute inset-0 md:inset-y-0 md:left-auto md:right-0 w-full md:w-[60%] lg:w-[50%] h-full z-20 pointer-events-none"
+        className="absolute inset-y-0 right-0 w-[130%] md:w-[60%] lg:w-[50%] h-full z-20 pointer-events-none translate-x-[28%] md:translate-x-0"
       >
         <div className="relative w-full h-full">
           {/* Using raw <img> tag to bypass Next.js image optimization compression and achieve pixel-perfect HD quality */}
           <img
             src="/images/hero-portrait.png"
             alt="Muhammad Ahmed Portrait"
-            className="absolute inset-0 w-full h-full object-cover object-[85%_0%] md:object-right-top select-none"
+            className="absolute inset-0 w-full h-full object-cover object-[90%_0%] md:object-right-top select-none"
             style={{
               opacity: 0.95,
               maskImage: isMobile 
-                ? "linear-gradient(to right, transparent 10%, black 45%)" 
+                ? "linear-gradient(to right, transparent 15%, black 50%)" 
                 : "linear-gradient(to right, transparent 24%, black 52%)",
               WebkitMaskImage: isMobile 
-                ? "linear-gradient(to right, transparent 10%, black 45%)" 
+                ? "linear-gradient(to right, transparent 15%, black 50%)" 
                 : "linear-gradient(to right, transparent 24%, black 52%)",
               imageRendering: "high-quality" as any,
             }}
@@ -123,7 +123,7 @@ export default function Hero() {
           {/* H1 - Name: Largest, dominant */}
           <motion.h1
             variants={fadeInUpVariants}
-            className="text-glow-amber font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.95] mb-6 sm:mb-8"
+            className="text-glow-amber font-heading text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[0.95] mb-6 sm:mb-8"
           >
             Muhammad <br />
             <span className="text-[#FFB347]">Ahmed</span>
