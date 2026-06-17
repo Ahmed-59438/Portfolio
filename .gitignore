@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# portfolio fluff & workspace management
+/implementation_plan.md
+/task.md
+/CLAUDE.md
+/AGENTS.md
+
+# personal assets & media (uploaded separately)
+/public/images/
+
